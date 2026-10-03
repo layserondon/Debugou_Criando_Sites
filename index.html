@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Debugou | Site, domínio, hospedagem e Google Empresa para pequenos negócios</title>
+<meta name="description" content="Landing page, domínio, hospedagem e Perfil da Empresa no Google para pequenos negócios. Achamos o bug da sua presença online e corrigimos.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐞</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F5F8FC;--card:#fff;--ink:#0E1B2E;--mute:#52627A;--line:#DCE5F1;--blue:#2457FF;--blue-d:#173DC4;--ok:#0FA37F;--bad:#E5484D;--grid:rgba(36,87,255,.07)}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font:16px/1.6 'IBM Plex Sans',system-ui,sans-serif;color:var(--ink);background:var(--bg);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:32px 32px}
+h1,h2,h3{font-family:'Space Grotesk',sans-serif;line-height:1.1;letter-spacing:-.02em}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+section{padding:72px 0}
+h2{font-size:clamp(1.8rem,4vw,2.6rem);margin-bottom:14px;max-width:20ch}
+.lead{color:var(--mute);max-width:56ch;margin-bottom:32px}
+.btn{display:inline-block;border:0;cursor:pointer;font:500 1rem 'IBM Plex Sans',sans-serif;padding:13px 22px;border-radius:10px;background:var(--blue);color:#fff;text-decoration:none;transition:background .2s,transform .15s}
+.btn:hover{background:var(--blue-d);transform:translateY(-1px)}
+.btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--ink)}
+.btn.ghost:hover{background:var(--ink);color:#fff}
+nav{position:sticky;top:0;z-index:5;background:rgba(245,248,252,.9);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
+.logo{font:700 1.35rem 'Space Grotesk';text-decoration:none}
+.logo b{color:var(--blue)}
+nav ul{display:flex;gap:22px;list-style:none;padding:0}
+nav ul a{text-decoration:none;color:var(--mute);font-size:.95rem}
+nav ul a:hover{color:var(--ink)}
+.hero{padding-top:56px;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+.hero h1{font-size:clamp(2.2rem,5.4vw,3.8rem);margin-bottom:18px}
+.hero p{color:var(--mute);font-size:1.1rem;max-width:46ch;margin-bottom:28px}
+.hero .row{display:flex;gap:12px;flex-wrap:wrap}
+.term{background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:0 18px 40px -22px rgba(36,87,255,.45);overflow:hidden}
+.term-bar{display:flex;align-items:center;gap:6px;padding:11px 14px;border-bottom:1px solid var(--line);background:#EEF3FA;font:.85rem ui-monospace,Menlo,monospace;color:var(--mute)}
+.term-bar i{width:10px;height:10px;border-radius:50%;background:#C6D2E3}
+.term-bar span{margin-left:8px}
+.term ul{list-style:none;padding:8px 0}
+.term li{display:flex;gap:12px;padding:12px 18px;font-size:.95rem;border-bottom:1px dashed var(--line);transition:background .3s}
+.term li:last-child{border:0}
+.term li .ic{flex:none;width:22px;height:22px;border-radius:50%;display:grid;place-items:center;color:#fff;font-size:.8rem;background:var(--bad);transition:background .3s,transform .3s}
+.term li.fixed{background:#F0FBF7}
+.term li.fixed .ic{background:var(--ok);transform:scale(1.1)}
+.term-foot{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:14px 18px;border-top:1px solid var(--line);font:.85rem ui-monospace,Menlo,monospace;color:var(--mute)}
+.term-foot button{font:500 .9rem 'IBM Plex Sans';background:var(--ink);color:#fff;border:0;border-radius:8px;padding:9px 16px;cursor:pointer}
+.who{display:grid;grid-template-columns:auto 1fr;gap:36px;align-items:start;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:36px}
+.avatar{width:140px;height:140px;border-radius:28px;object-fit:cover;display:block;border:3px solid #fff;box-shadow:0 14px 30px -14px rgba(36,87,255,.55),0 0 0 1.5px var(--line)}
+.who h2{max-width:24ch}
+.who p{color:var(--mute);margin-bottom:18px;max-width:62ch}
+.pts{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:22px 0}
+.pts div{border-left:3px solid var(--blue);padding:2px 0 2px 14px;font-size:.95rem}
+.pts b{display:block;font-family:'Space Grotesk'}
+.links{display:flex;gap:16px;flex-wrap:wrap}
+.links a{color:var(--blue);font-weight:500}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.tab{border:1.5px solid var(--line);background:var(--card);padding:10px 20px;border-radius:999px;font:500 1rem 'IBM Plex Sans';cursor:pointer}
+.tab[aria-selected=true]{background:var(--ink);border-color:var(--ink);color:#fff}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:28px;display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:28px}
+.panel h3{font-size:1.5rem;margin-bottom:8px}
+.panel p,.panel li{color:var(--mute);font-size:.96rem}
+.panel h4{font:700 .95rem 'Space Grotesk';margin-bottom:4px}
+.panel[hidden]{display:none}
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-items:stretch}
+.plan{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:28px;display:flex;flex-direction:column;position:relative}
+.plan.pop{border:2px solid var(--blue);box-shadow:0 22px 44px -26px rgba(36,87,255,.6)}
+.badge{position:absolute;top:-13px;left:24px;background:var(--blue);color:#fff;font:500 .82rem 'IBM Plex Sans';padding:4px 12px;border-radius:999px}
+.plan h3{font-size:1.4rem}
+.price{font:700 2.3rem 'Space Grotesk';margin:10px 0 4px}
+.price small{font:400 .9rem 'IBM Plex Sans';color:var(--mute)}
+.plan ul{list-style:none;padding:0;margin:16px 0 24px;display:grid;gap:9px;font-size:.95rem;flex:1}
+.plan li::before{content:'✔';color:var(--ok);margin-right:9px}
+.plan li.no{color:#8795AB}.plan li.no::before{content:'–';color:#8795AB}
+.opts{display:flex;gap:18px;flex-wrap:wrap;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 20px;margin-bottom:26px}
+.opts input[type=text]{flex:1;min-width:220px}
+input[type=text]{font:inherit;padding:11px 14px;border:1.5px solid var(--line);border-radius:10px;background:#fff}
+.opts label{display:flex;gap:10px;align-items:center;cursor:pointer}
+.opts input[type=checkbox]{width:20px;height:20px;accent-color:var(--blue)}
+.note{color:var(--mute);font-size:.88rem;margin-top:16px}
+.drop{border:2px dashed #9FB4D9;background:var(--card);border-radius:16px;padding:36px;text-align:center;transition:.2s}
+.drop.over,.drop:hover{border-color:var(--blue);background:#F0F5FF}
+.drop p{color:var(--mute);margin:6px 0 18px}
+.drop input{display:none}
+.file{display:none;margin-top:18px;font-weight:500}
+.file.on{display:block}
+.err{color:var(--bad);font-size:.92rem;margin-top:10px;min-height:1.2em}
+footer{border-top:1px solid var(--line);padding:30px 0;color:var(--mute);font-size:.9rem}
+footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+@media(max-width:860px){.hero,.panel,.plans,.who{grid-template-columns:1fr}.pts{grid-template-columns:1fr}nav ul{display:none}section{padding:52px 0}.who{padding:24px}.avatar{width:112px;height:112px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<nav><div class="wrap">
+  <a class="logo" href="#top">Debug<b>ou</b></a>
+  <ul><li><a href="#quem">Quem faz</a></li><li><a href="#caminhos">Como criar</a></li><li><a href="#planos">Planos</a></li><li><a href="#briefing">Briefing</a></li></ul>
+  <a class="btn" href="#planos">Ver planos</a>
+</div></nav>
+
+<main id="top">
+<section class="wrap hero">
+  <div>
+    <h1>Seu negócio tem um bug de presença online. A gente acha e corrige.</h1>
+    <p>Landing page, domínio, hospedagem e Perfil da Empresa no Google para pequenos negócios que querem ser encontrados e levados a sério.</p>
+    <div class="row"><a class="btn" href="#planos">Escolher meu plano</a><button class="btn ghost" id="runTop">Rodar o debug</button></div>
+  </div>
+  <div class="term" aria-live="polite">
+    <div class="term-bar"><i></i><i></i><i></i><span>diagnostico: seunegocio.com.br</span></div>
+    <ul id="bugs">
+      <li><span class="ic">✕</span><span data-bad="Não aparece quando o cliente pesquisa no Google" data-ok="Perfil no Google com mapa, horário e avaliações">Não aparece quando o cliente pesquisa no Google</span></li>
+      <li><span class="ic">✕</span><span data-bad="Sem site próprio, só redes sociais" data-ok="Landing page no ar com domínio próprio">Sem site próprio, só redes sociais</span></li>
+      <li><span class="ic">✕</span><span data-bad="Serviços e preços espalhados em vários lugares" data-ok="Serviços e preços organizados em uma página">Serviços e preços espalhados em vários lugares</span></li>
+      <li><span class="ic">✕</span><span data-bad="Cliente precisa procurar seu contato" data-ok="Botão de WhatsApp em toda a página">Cliente precisa procurar seu contato</span></li>
+    </ul>
+    <div class="term-foot"><span id="count">0/4 bugs corrigidos</span><button id="run">Rodar debug</button></div>
+  </div>
+</section>
+
+<section class="wrap" id="quem">
+  <div class="who">
+    <img class="avatar" src="foto.jpg" alt="Layse Rondon, responsável pela Debugou" width="140" height="140">
+    <div>
+      <h2>Quem entende de tecnologia sabe onde procurar o erro.</h2>
+      <p>Sou a Layse Rondon, de Petrolina-PE. Estudo Análise e Desenvolvimento de Sistemas e trabalho com código e automação. Olho para o seu negócio como um sistema: descubro o que trava a sua visibilidade, conserto e explico o que você precisa para ganhar credibilidade na era da tecnologia.</p>
+      <div class="pts">
+        <div><b>Acho o erro</b>Por que seu cliente não te encontra ou desiste no caminho.</div>
+        <div><b>Conserto</b>Site rápido, domínio, hospedagem e Google configurados.</div>
+        <div><b>Digo o que falta</b>Um passo a passo claro para crescer, sem jargão.</div>
+      </div>
+      <div class="links"><a href="https://github.com/layserondon" target="_blank" rel="noopener">GitHub</a><a href="https://linkedin.com/in/layse-rondon" target="_blank" rel="noopener">LinkedIn</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="wrap" id="caminhos">
+  <h2>Quatro jeitos de criar o seu site.</h2>
+  <p class="lead">Cada negócio pede um caminho. Eu indico o melhor para o seu caso e cuido do resto.</p>
+  <div class="tabs" role="tablist" id="tabs"></div>
+  <div id="panels"></div>
+</section>
+
+<section class="wrap" id="planos">
+  <h2>Planos com preço fechado.</h2>
+  <p class="lead">Domínio e hospedagem do primeiro ano estão incluídos. Escolha, e eu continuo a conversa no WhatsApp.</p>
+  <div class="opts">
+    <input type="text" id="biz" placeholder="Nome do seu negócio (opcional)" aria-label="Nome do seu negócio">
+    <label><input type="checkbox" id="gmb"> Adicionar Perfil da Empresa no Google (+ R$ 190)</label>
+  </div>
+  <div class="plans" id="plans"></div>
+  <p class="note">Renovação anual de domínio e hospedagem cobrada à parte, a partir do segundo ano. Pagamento por Pix ou parcelado, combinamos no WhatsApp.</p>
+</section>
+
+<section class="wrap" id="briefing">
+  <h2>Já tem um briefing? Envie em PDF.</h2>
+  <p class="lead">Conte o que o seu negócio faz, o que vende e o que você espera do site. Eu leio e entro em contato.</p>
+  <div class="drop" id="drop">
+    <b>Arraste o PDF aqui</b>
+    <p>Somente PDF, até 10 MB.</p>
+    <input type="file" id="pdf" accept="application/pdf">
+    <button class="btn ghost" id="pick">Escolher arquivo</button>
+    <div class="file" id="fname"></div>
+    <div style="margin-top:18px"><button class="btn" id="sendPdf" hidden>Enviar briefing pelo WhatsApp</button></div>
+    <div class="err" id="err" role="alert"></div>
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap"><span>Debugou · Layse Rondon · Petrolina-PE</span><a href="https://wa.me/5511997980272" target="_blank" rel="noopener">WhatsApp</a></div></footer>
+
+<script>
+const WA='5511997980272';
+const open_=t=>window.open('https://wa.me/'+WA+'?text='+encodeURIComponent(t),'_blank','noopener');
+const reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+
+/* Debug interativo */
+const lis=[...document.querySelectorAll('#bugs li')],cnt=document.getElementById('count'),runBtn=document.getElementById('run');
+let busy=false;
+function reset(){lis.forEach(l=>{l.classList.remove('fixed');const s=l.querySelector('span:last-child');s.textContent=s.dataset.bad;l.querySelector('.ic').textContent='✕'});cnt.textContent='0/4 bugs corrigidos'}
+async function run(){
+  if(busy)return;busy=true;reset();runBtn.textContent='Depurando...';
+  for(let i=0;i<lis.length;i++){
+    await new Promise(r=>setTimeout(r,reduce?0:650));
+    const l=lis[i],s=l.querySelector('span:last-child');
+    l.classList.add('fixed');s.textContent=s.dataset.ok;l.querySelector('.ic').textContent='✔';
+    cnt.textContent=(i+1)+'/4 bugs corrigidos';
+  }
+  runBtn.textContent='Rodar de novo';busy=false;
+}
+runBtn.onclick=run;
+document.getElementById('runTop').onclick=()=>{document.querySelector('.term').scrollIntoView({behavior:'smooth',block:'center'});run()};
+
+/* Caminhos */
+const ways=[
+ {n:'Lovable',d:'Você descreve o site em texto e a IA monta tudo. Eu refino o resultado, conecto o domínio e publico.',g:'Sites sob medida e rápidos, com código que pode ser exportado para o GitHub.',a:'Os planos têm limite de créditos de uso.'},
+ {n:'Base44',d:'Plataforma de IA que já traz banco de dados, login e funções prontas junto com o site.',g:'Páginas com cadastro de clientes, formulários que guardam dados ou agendamento.',a:'O site fica dentro da plataforma, com mensalidade própria nos planos pagos.'},
+ {n:'Claude',d:'Eu transformo o seu briefing em código completo, revisado por mim, e publico na Vercel ou na Hostinger.',g:'Quem quer controle total, visual único e nenhuma mensalidade de plataforma.',a:'Alterações futuras passam por mim, o que é ótimo se você prefere não mexer.'},
+ {n:'Wix',d:'Editor de arrastar e soltar, com modelos prontos e área para você editar sozinho.',g:'Quem quer mudar textos e fotos por conta própria, ou ter loja e agenda simples.',a:'Tem mensalidade própria e é menos flexível que código sob medida.'}
+];
+const tabs=document.getElementById('tabs'),panels=document.getElementById('panels');
+ways.forEach((w,i)=>{
+  const b=document.createElement('button');b.className='tab';b.role='tab';b.textContent=w.n;b.setAttribute('aria-selected',i==0);
+  const p=document.createElement('div');p.className='panel';p.role='tabpanel';p.hidden=i!=0;
+  p.innerHTML=`<div><h3>${w.n}</h3><p>${w.d}</p></div><div><h4>Bom para</h4><p>${w.g}</p></div><div><h4>Atenção</h4><p>${w.a}</p></div>`;
+  b.onclick=()=>{[...tabs.children].forEach((t,j)=>{t.setAttribute('aria-selected',j==i);panels.children[j].hidden=j!=i})};
+  tabs.append(b);panels.append(p);
+});
+
+/* Planos */
+const plans=[
+ {n:'Start',p:590,t:'Para colocar o negócio no ar.',f:['Landing page de 1 página','Domínio próprio (1º ano)','Hospedagem (1º ano) com SSL','Botão de WhatsApp','Adaptada ao celular'],no:['Perfil no Google incluso']},
+ {n:'Pro',p:890,pop:1,t:'O mais escolhido por pequenos negócios.',f:['Landing page com até 5 seções','Domínio e hospedagem (1º ano)','E-mail profissional','Formulário de contato','SEO básico e Google Analytics','1 revisão de ajustes'],no:[]},
+ {n:'Premium',p:1490,t:'Visibilidade completa, do Google ao site.',f:['Site de até 3 páginas','Domínio e hospedagem (1º ano)','Perfil da Empresa no Google incluso','E-mail profissional','SEO local e Analytics','2 revisões + 30 dias de suporte'],no:[]}
+];
+const money=v=>'R$ '+v.toLocaleString('pt-BR');
+document.getElementById('plans').innerHTML=plans.map((x,i)=>`<article class="plan${x.pop?' pop':''}">${x.pop?'<span class="badge">Mais popular</span>':''}<h3>${x.n}</h3><div class="price">${money(x.p)} <small>pagamento único</small></div><p class="note" style="margin:0">${x.t}</p><ul>${x.f.map(f=>`<li>${f}</li>`).join('')}${x.no.map(f=>`<li class="no">${f}</li>`).join('')}</ul><button class="btn${x.pop?'':' ghost'}" data-i="${i}">Quero o plano ${x.n}</button></article>`).join('');
+document.getElementById('plans').onclick=e=>{
+  const b=e.target.closest('button[data-i]');if(!b)return;
+  const x=plans[b.dataset.i],biz=document.getElementById('biz').value.trim(),gmb=document.getElementById('gmb').checked&&x.n!=='Premium';
+  let m=`Olá! Vim pelo site Debugou e quero o plano ${x.n} (${money(x.p)}).`;
+  if(gmb)m+=` Também quero adicionar o serviço extra de Perfil da Empresa no Google (+ R$ 190).`;
+  if(biz)m+=` Meu negócio: ${biz}.`;
+  m+=` Pode me passar mais informações e os próximos passos?`;
+  open_(m);
+};
+
+/* Upload de briefing */
+const drop=document.getElementById('drop'),inp=document.getElementById('pdf'),err=document.getElementById('err'),fn=document.getElementById('fname'),send=document.getElementById('sendPdf');
+let file=null;
+function setFile(f){
+  err.textContent='';
+  if(!f)return;
+  if(f.type!=='application/pdf'&&!f.name.toLowerCase().endsWith('.pdf')){err.textContent='Envie um arquivo PDF.';return}
+  if(f.size>10*1024*1024){err.textContent='O PDF tem mais de 10 MB. Envie um arquivo menor.';return}
+  file=f;fn.textContent='📄 '+f.name;fn.classList.add('on');send.hidden=false;
+}
+document.getElementById('pick').onclick=()=>inp.click();
+inp.onchange=()=>setFile(inp.files[0]);
+['dragover','dragenter'].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.add('over')}));
+['dragleave','drop'].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.remove('over')}));
+drop.addEventListener('drop',e=>setFile(e.dataTransfer.files[0]));
+send.onclick=async()=>{
+  const text=`Olá! Vim pelo site Debugou e preparei o briefing do meu negócio em PDF (${file.name}). Pode dar uma olhada e me retornar?`;
+  try{
+    if(navigator.canShare&&navigator.canShare({files:[file]})){await navigator.share({files:[file],text});return}
+  }catch(e){if(e.name==='AbortError')return}
+  open_(text);
+  err.style.color='var(--mute)';err.textContent='O WhatsApp abriu. Anexe o PDF na conversa para completar o envio.';
+};
+</script>
+</body>
+</html>
