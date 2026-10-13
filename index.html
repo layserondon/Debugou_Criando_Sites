@@ -102,10 +102,11 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 .mbtn{justify-self:start;background:var(--ma);color:var(--mb);font:500 .76rem 'IBM Plex Sans';padding:6px 12px;border-radius:7px}
 .mrow{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-top:6px}
 .mrow i{height:34px;border-radius:7px;background:currentColor;opacity:.12}
+.model:last-child:nth-child(3n+1){grid-column:1/-1;max-width:calc((100% - 40px)/3);justify-self:center}
 .mact{display:flex;gap:10px;flex-wrap:wrap}.mact .btn{padding:10px 16px;font-size:.92rem}
 .model h3{font-size:1.2rem}
 .model p{color:var(--mute);font-size:.94rem;flex:1}
-@media(max-width:860px){.models{grid-template-columns:1fr}.hero,.panel,.plans,.who{grid-template-columns:1fr}.pts{grid-template-columns:1fr}nav ul{display:none}section{padding:52px 0}.who{padding:24px}.avatar{width:112px;height:112px}}
+@media(max-width:860px){.models{grid-template-columns:1fr}.model:last-child:nth-child(3n+1){max-width:none}.hero,.panel,.plans,.who{grid-template-columns:1fr}.pts{grid-template-columns:1fr}nav ul{display:none}section{padding:52px 0}.who{padding:24px}.avatar{width:112px;height:112px}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
@@ -238,7 +239,8 @@ const models=[
  {n:'Elétrica',u:'https://eletrica-solucoes.lovable.app',bg:'#0F172A',ac:'#FFC933',tx:'#FFFFFF',l:'Elétrica Soluções',h:'Instalações e reparos elétricos com segurança',c:'Chamar agora',d:'Modelo para eletricistas, com serviços e contato direto.'},
  {n:'Imobiliária',u:'https://modelo-imob.lovable.app/',bg:'#F7F5F0',ac:'#1F4E79',tx:'#1B2430',l:'Modelo Imob',h:'Encontre o imóvel certo para você',c:'Ver imóveis',d:'Modelo para imobiliárias e corretores apresentarem seus imóveis.'},
  {n:'Floricultura',u:'https://flora-atelier.lovable.app',bg:'#FFF1F3',ac:'#D9486B',tx:'#3A1A22',l:'Flora Atelier',h:'Flores e arranjos para cada momento',c:'Fazer pedido',d:'Modelo para floriculturas e ateliês, com vitrine de arranjos.'},
- {n:'Fisioterapeuta',u:'https://physio-embrace.lovable.app',bg:'#EFF8F6',ac:'#1C9A8A',tx:'#0E3530',l:'Physio Embrace',h:'Movimento e bem-estar com cuidado',c:'Agendar avaliação',d:'Modelo para fisioterapeutas e clínicas de reabilitação.'}
+ {n:'Fisioterapeuta',u:'https://physio-embrace.lovable.app',bg:'#EFF8F6',ac:'#1C9A8A',tx:'#0E3530',l:'Physio Embrace',h:'Movimento e bem-estar com cuidado',c:'Agendar avaliação',d:'Modelo para fisioterapeutas e clínicas de reabilitação.'},
+ {n:'Assistência técnica',u:'https://assistencia-smartphone.lovable.app',bg:'#F3F0FF',ac:'#6A4DF5',tx:'#1D1640',l:'Assistência Smartphone',h:'Seu celular de volta funcionando',c:'Pedir orçamento',d:'Modelo para assistências técnicas de celulares e eletrônicos.'}
 ];
 const me=document.getElementById('models');
 me.innerHTML=models.map((m,i)=>`<article class="model"><div class="mock" style="--mb:${m.bg};--ma:${m.ac};--mt:${m.tx}" aria-hidden="true"><div class="mbar"><i></i><i></i><i></i></div><div class="mbody"><small>${m.l}</small><b>${m.h}</b><span class="mbtn">${m.c}</span><div class="mrow"><i></i><i></i><i></i></div></div></div><h3>${m.n}</h3><p>${m.d}</p><div class="mact"><a class="btn ghost" href="${m.u}" target="_blank" rel="noopener">Ver modelo ao vivo</a><button class="btn" data-m="${i}">Quero este</button></div></article>`).join('');
