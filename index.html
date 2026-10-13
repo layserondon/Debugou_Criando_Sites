@@ -90,14 +90,29 @@ input[type=text]{font:inherit;padding:11px 14px;border:1.5px solid var(--line);b
 .err{color:var(--bad);font-size:.92rem;margin-top:10px;min-height:1.2em}
 footer{border-top:1px solid var(--line);padding:30px 0;color:var(--mute);font-size:.9rem}
 footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
-@media(max-width:860px){.hero,.panel,.plans,.who{grid-template-columns:1fr}.pts{grid-template-columns:1fr}nav ul{display:none}section{padding:52px 0}.who{padding:24px}.avatar{width:112px;height:112px}}
+.models{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.model{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;display:flex;flex-direction:column;gap:14px}
+.mock{border-radius:12px;overflow:hidden;border:1px solid var(--line);background:var(--mb);color:var(--mt);transition:transform .25s,box-shadow .25s}
+.model:hover .mock{transform:translateY(-4px) rotate(-.6deg);box-shadow:0 18px 34px -18px rgba(14,27,46,.5)}
+.mbar{display:flex;gap:5px;padding:8px 10px;background:rgba(0,0,0,.08)}
+.mbar i{width:7px;height:7px;border-radius:50%;background:currentColor;opacity:.35}
+.mbody{padding:16px 16px 18px;display:grid;gap:10px;min-height:178px;align-content:start}
+.mbody small{font:700 .72rem 'Space Grotesk';color:var(--ma)}
+.mbody b{font:700 1.15rem/1.15 'Space Grotesk'}
+.mbtn{justify-self:start;background:var(--ma);color:var(--mb);font:500 .76rem 'IBM Plex Sans';padding:6px 12px;border-radius:7px}
+.mrow{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-top:6px}
+.mrow i{height:34px;border-radius:7px;background:currentColor;opacity:.12}
+.mact{display:flex;gap:10px;flex-wrap:wrap}.mact .btn{padding:10px 16px;font-size:.92rem}
+.model h3{font-size:1.2rem}
+.model p{color:var(--mute);font-size:.94rem;flex:1}
+@media(max-width:860px){.models{grid-template-columns:1fr}.hero,.panel,.plans,.who{grid-template-columns:1fr}.pts{grid-template-columns:1fr}nav ul{display:none}section{padding:52px 0}.who{padding:24px}.avatar{width:112px;height:112px}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
 <body>
 <nav><div class="wrap">
   <a class="logo" href="#top">Debug<b>ou</b></a>
-  <ul><li><a href="#quem">Quem faz</a></li><li><a href="#caminhos">Como criar</a></li><li><a href="#planos">Planos</a></li><li><a href="#briefing">Briefing</a></li></ul>
+  <ul><li><a href="#quem">Quem faz</a></li><li><a href="#caminhos">Como criar</a></li><li><a href="#modelos">Modelos</a></li><li><a href="#planos">Planos</a></li><li><a href="#briefing">Briefing</a></li></ul>
   <a class="btn" href="#planos">Ver planos</a>
 </div></nav>
 
@@ -141,6 +156,13 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
   <p class="lead">Cada negócio pede um caminho. Eu indico o melhor para o seu caso e cuido do resto.</p>
   <div class="tabs" role="tablist" id="tabs"></div>
   <div id="panels"></div>
+</section>
+
+<section class="wrap" id="modelos">
+  <h2>Modelos de landing page.</h2>
+  <p class="lead">Veja cada modelo funcionando e escolha o seu ponto de partida. Eu adapto cores, textos e fotos ao seu negócio.</p>
+  <div class="models" id="models"></div>
+  <p class="note">As prévias coloridas são ilustrativas: abra “Ver modelo ao vivo” para ver o site de verdade. O resultado final é personalizado para o seu negócio.</p>
 </section>
 
 <section class="wrap" id="planos">
@@ -208,6 +230,23 @@ ways.forEach((w,i)=>{
   b.onclick=()=>{[...tabs.children].forEach((t,j)=>{t.setAttribute('aria-selected',j==i);panels.children[j].hidden=j!=i})};
   tabs.append(b);panels.append(p);
 });
+
+/* Modelos */
+const models=[
+ {n:'Marido de aluguel',u:'https://maridodealuguel-reparos.lovable.app',bg:'#FFF7E6',ac:'#F28C18',tx:'#2A2113',l:'Marido de Aluguel',h:'Reparos e pequenos serviços para a sua casa',c:'Pedir orçamento',d:'Modelo para quem faz reparos e pequenos serviços residenciais.'},
+ {n:'Hidráulica',u:'https://hidraulica-solucoes.lovable.app',bg:'#EAF6FF',ac:'#0E7FD6',tx:'#0A2A43',l:'Hidráulica Soluções',h:'Vazamentos e desentupimentos com rapidez',c:'Chamar agora',d:'Modelo para encanadores e desentupidoras, com foco em contato rápido.'},
+ {n:'Elétrica',u:'https://eletrica-solucoes.lovable.app',bg:'#0F172A',ac:'#FFC933',tx:'#FFFFFF',l:'Elétrica Soluções',h:'Instalações e reparos elétricos com segurança',c:'Chamar agora',d:'Modelo para eletricistas, com serviços e contato direto.'},
+ {n:'Imobiliária',u:'https://modelo-imob.lovable.app/',bg:'#F7F5F0',ac:'#1F4E79',tx:'#1B2430',l:'Modelo Imob',h:'Encontre o imóvel certo para você',c:'Ver imóveis',d:'Modelo para imobiliárias e corretores apresentarem seus imóveis.'},
+ {n:'Floricultura',u:'https://flora-atelier.lovable.app',bg:'#FFF1F3',ac:'#D9486B',tx:'#3A1A22',l:'Flora Atelier',h:'Flores e arranjos para cada momento',c:'Fazer pedido',d:'Modelo para floriculturas e ateliês, com vitrine de arranjos.'},
+ {n:'Fisioterapeuta',u:'https://physio-embrace.lovable.app',bg:'#EFF8F6',ac:'#1C9A8A',tx:'#0E3530',l:'Physio Embrace',h:'Movimento e bem-estar com cuidado',c:'Agendar avaliação',d:'Modelo para fisioterapeutas e clínicas de reabilitação.'}
+];
+const me=document.getElementById('models');
+me.innerHTML=models.map((m,i)=>`<article class="model"><div class="mock" style="--mb:${m.bg};--ma:${m.ac};--mt:${m.tx}" aria-hidden="true"><div class="mbar"><i></i><i></i><i></i></div><div class="mbody"><small>${m.l}</small><b>${m.h}</b><span class="mbtn">${m.c}</span><div class="mrow"><i></i><i></i><i></i></div></div></div><h3>${m.n}</h3><p>${m.d}</p><div class="mact"><a class="btn ghost" href="${m.u}" target="_blank" rel="noopener">Ver modelo ao vivo</a><button class="btn" data-m="${i}">Quero este</button></div></article>`).join('');
+me.onclick=e=>{
+  const b=e.target.closest('button[data-m]');if(!b)return;
+  const m=models[b.dataset.m],biz=(document.getElementById('biz')||{}).value;
+  open_(`Olá! Vim pelo site Debugou e gostei do modelo ${m.n}. Quero uma landing page nesse estilo${biz&&biz.trim()?' para o meu negócio: '+biz.trim():''}. Pode me passar mais informações?`);
+};
 
 /* Planos */
 const plans=[
