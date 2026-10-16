@@ -1,0 +1,10 @@
+# Ignora tudo
+*
+
+# Exceto o que faz parte do site
+!.gitignore
+!index.html
+!README.md
+!foto.jpg
+!robots.txt
+!sitemap.xml
