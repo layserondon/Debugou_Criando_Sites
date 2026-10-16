@@ -88,6 +88,32 @@ input[type=text]{font:inherit;padding:11px 14px;border:1.5px solid var(--line);b
 .file{display:none;margin-top:18px;font-weight:500}
 .file.on{display:block}
 .err{color:var(--bad);font-size:.92rem;margin-top:10px;min-height:1.2em}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.step{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px}
+.step b{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--blue);color:#fff;font-family:'Space Grotesk';margin-bottom:12px}
+.step h3{font-size:1.2rem;margin-bottom:6px}
+.step p{color:var(--mute);font-size:.95rem}
+.svcs{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+.svcs .plan{padding:24px}
+.chat{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;max-width:760px;margin:0 auto}
+.clog{height:420px;overflow-y:auto;padding:20px;display:flex;flex-direction:column;gap:10px;background:#FBFCFF}
+.msg{max-width:85%;padding:11px 15px;border-radius:14px;font-size:.95rem;line-height:1.5}
+.msg.bot{background:#EEF3FA;align-self:flex-start;border-bottom-left-radius:4px}
+.msg.me{background:var(--blue);color:#fff;align-self:flex-end;border-bottom-right-radius:4px}
+.msg.pre{white-space:pre-line;font-size:.88rem;background:#fff;border:1px solid var(--line);max-width:100%}
+.copts{display:flex;flex-wrap:wrap;gap:8px;padding:12px 20px 0}
+.copts:empty{display:none}
+.chip{border:1.5px solid var(--blue);background:#fff;color:var(--blue);border-radius:999px;padding:8px 14px;font:500 .9rem 'IBM Plex Sans';cursor:pointer}
+.chip:hover{background:var(--blue);color:#fff}
+.cform{display:flex;gap:10px;padding:14px 20px;border-top:1px solid var(--line);margin-top:12px}
+.cform input{flex:1;min-width:0}
+.cform input:disabled{opacity:.5}
+.cform .btn:disabled{opacity:.5;cursor:default;transform:none}
+.faq{max-width:760px}
+.faq details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 20px;margin-bottom:10px}
+.faq summary{cursor:pointer;font:500 1.02rem 'Space Grotesk'}
+.faq p{color:var(--mute);margin-top:10px;font-size:.95rem}
+@media(max-width:860px){.steps{grid-template-columns:1fr}.clog{height:360px}.msg{max-width:95%}}
 footer{border-top:1px solid var(--line);padding:30px 0;color:var(--mute);font-size:.9rem}
 footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 .models{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
@@ -113,7 +139,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 <body>
 <nav><div class="wrap">
   <a class="logo" href="#top">Debug<b>ou</b></a>
-  <ul><li><a href="#quem">Quem faz</a></li><li><a href="#caminhos">Como criar</a></li><li><a href="#modelos">Modelos</a></li><li><a href="#planos">Planos</a></li><li><a href="#briefing">Briefing</a></li></ul>
+  <ul><li><a href="#quem">Quem faz</a></li><li><a href="#caminhos">Como criar</a></li><li><a href="#modelos">Modelos</a></li><li><a href="#planos">Serviços</a></li><li><a href="#chat">Assistente</a></li><li><a href="#briefing">Briefing</a></li></ul>
   <a class="btn" href="#planos">Ver planos</a>
 </div></nav>
 
@@ -122,7 +148,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
   <div>
     <h1>Seu negócio tem um bug de presença online. A gente acha e corrige.</h1>
     <p>Landing page, domínio, hospedagem e Perfil da Empresa no Google para pequenos negócios que querem ser encontrados e levados a sério.</p>
-    <div class="row"><a class="btn" href="#planos">Escolher meu plano</a><button class="btn ghost" id="runTop">Rodar o debug</button></div>
+    <div class="row"><a class="btn" href="#chat">Falar com o assistente</a><button class="btn ghost" id="runTop">Rodar o debug</button></div>
   </div>
   <div class="term" aria-live="polite">
     <div class="term-bar"><i></i><i></i><i></i><span>diagnostico: seunegocio.com.br</span></div>
@@ -167,16 +193,43 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 </section>
 
 <section class="wrap" id="planos">
-  <h2>Planos com preço fechado.</h2>
-  <p class="lead">Domínio e hospedagem do primeiro ano estão incluídos. Escolha, e eu continuo a conversa no WhatsApp.</p>
-  <div class="opts">
-    <input type="text" id="biz" placeholder="Nome do seu negócio (opcional)" aria-label="Nome do seu negócio">
-    <label><input type="checkbox" id="gmb"> Adicionar Perfil da Empresa no Google (+ R$ 190)</label>
-  </div>
-  <div class="plans" id="plans"></div>
-  <p class="note">Renovação anual de domínio e hospedagem cobrada à parte, a partir do segundo ano. Pagamento por Pix ou parcelado, combinamos no WhatsApp.</p>
+  <h2>Serviços e valores de referência.</h2>
+  <p class="lead">Os valores são pontos de partida. Antes de qualquer orçamento fechado, eu avalio o escopo do seu projeto.</p>
+  <div class="svcs" id="svcs"></div>
+  <p class="note">Domínio e hospedagem são custos anuais à parte, informados antes do fechamento.</p>
 </section>
 
+<section class="wrap" id="como">
+  <h2>Como funciona.</h2>
+  <div class="steps">
+    <div class="step"><b>1</b><h3>Conte seu caso</h3><p>O assistente pergunta uma coisa por vez para entender seu negócio.</p></div>
+    <div class="step"><b>2</b><h3>Veja a faixa de preço</h3><p>Você sabe o valor de referência antes de decidir qualquer coisa.</p></div>
+    <div class="step"><b>3</b><h3>Você decide o envio</h3><p>Seus dados só vão para a Layse se você autorizar e clicar em enviar.</p></div>
+  </div>
+</section>
+
+<section class="wrap" id="chat">
+  <h2>Fale com o assistente.</h2>
+  <p class="lead">Ele entende o seu caso e mostra se o serviço combina com você.</p>
+  <div class="chat">
+    <div class="clog" id="clog" aria-live="polite"></div>
+    <div class="copts" id="copts"></div>
+    <form class="cform" id="cform">
+      <input type="text" id="cin" placeholder="Digite sua resposta..." aria-label="Sua resposta" maxlength="300" autocomplete="off" disabled>
+      <button class="btn" id="csend" type="submit" disabled>Enviar</button>
+    </form>
+  </div>
+</section>
+
+<section class="wrap" id="faq">
+  <h2>Perguntas frequentes.</h2>
+  <div class="faq">
+    <details><summary>Quanto custa um site?</summary><p>A landing page começa em R$ 800 e o site institucional simples em R$ 1.300. O valor final depende do escopo, que eu avalio antes do orçamento.</p></details>
+    <details><summary>Preciso de domínio e hospedagem?</summary><p>Sim, para o site ficar no ar. Esses custos anuais são informados antes do fechamento.</p></details>
+    <details><summary>Meus dados ficam salvos no site?</summary><p>Não. O site não guarda o que você digita. O resumo só é enviado se você autorizar e clicar no botão de enviar pelo WhatsApp.</p></details>
+    <details><summary>Vocês fazem automações?</summary><p>Automações simples têm referência de R$ 400 a R$ 1.000, conforme o caso.</p></details>
+  </div>
+</section>
 <section class="wrap" id="briefing">
   <h2>Já tem um briefing? Envie em PDF.</h2>
   <p class="lead">Conte o que o seu negócio faz, o que vende e o que você espera do site. Eu leio e entro em contato.</p>
@@ -250,23 +303,103 @@ me.onclick=e=>{
   open_(`Olá! Vim pelo site Debugou e gostei do modelo ${m.n}. Quero uma landing page nesse estilo${biz&&biz.trim()?' para o meu negócio: '+biz.trim():''}. Pode me passar mais informações?`);
 };
 
-/* Planos */
-const plans=[
- {n:'Start',p:590,t:'Para colocar o negócio no ar.',f:['Landing page de 1 página','Domínio próprio (1º ano)','Hospedagem (1º ano) com SSL','Botão de WhatsApp','Adaptada ao celular'],no:['Perfil no Google incluso']},
- {n:'Pro',p:890,pop:1,t:'O mais escolhido por pequenos negócios.',f:['Landing page com até 5 seções','Domínio e hospedagem (1º ano)','E-mail profissional','Formulário de contato','SEO básico e Google Analytics','1 revisão de ajustes'],no:[]},
- {n:'Premium',p:1490,t:'Visibilidade completa, do Google ao site.',f:['Site de até 3 páginas','Domínio e hospedagem (1º ano)','Perfil da Empresa no Google incluso','E-mail profissional','SEO local e Analytics','2 revisões + 30 dias de suporte'],no:[]}
-];
-const money=v=>'R$ '+v.toLocaleString('pt-BR');
-document.getElementById('plans').innerHTML=plans.map((x,i)=>`<article class="plan${x.pop?' pop':''}">${x.pop?'<span class="badge">Mais popular</span>':''}<h3>${x.n}</h3><div class="price">${money(x.p)} <small>pagamento único</small></div><p class="note" style="margin:0">${x.t}</p><ul>${x.f.map(f=>`<li>${f}</li>`).join('')}${x.no.map(f=>`<li class="no">${f}</li>`).join('')}</ul><button class="btn${x.pop?'':' ghost'}" data-i="${i}">Quero o plano ${x.n}</button></article>`).join('');
-document.getElementById('plans').onclick=e=>{
-  const b=e.target.closest('button[data-i]');if(!b)return;
-  const x=plans[b.dataset.i],biz=document.getElementById('biz').value.trim(),gmb=document.getElementById('gmb').checked&&x.n!=='Premium';
-  let m=`Olá! Vim pelo site Debugou e quero o plano ${x.n} (${money(x.p)}).`;
-  if(gmb)m+=` Também quero adicionar o serviço extra de Perfil da Empresa no Google (+ R$ 190).`;
-  if(biz)m+=` Meu negócio: ${biz}.`;
-  m+=` Pode me passar mais informações e os próximos passos?`;
-  open_(m);
+/* Serviços */
+const SV={
+ landing:{n:'landing page',p:'a partir de R$ 800',t:'Uma página para apresentar seu negócio e receber contatos.',f:['Página com proposta de valor e serviços','Botão de WhatsApp','Adaptada ao celular']},
+ inst:{n:'site institucional',p:'a partir de R$ 1.300',t:'Várias páginas para quem precisa de mais detalhes.',f:['Páginas como sobre, serviços e contato','Adaptado ao celular','Estrutura organizada para os buscadores']},
+ gmb:{n:'Perfil da Empresa no Google',p:'referência de R$ 250 a R$ 450',t:'Para aparecer na busca e no mapa.',f:['Configuração do perfil','Categorias e informações do negócio']},
+ meta:{n:'Anúncios Meta',p:'referência de R$ 350 a R$ 600',t:'Configuração inicial de anúncios no Instagram e Facebook.',f:['Configuração inicial da conta de anúncios','Público e objetivo definidos com você']},
+ auto:{n:'Automações simples',p:'referência de R$ 400 a R$ 1.000',t:'Tarefas repetitivas resolvidas automaticamente.',f:['Escopo avaliado antes do orçamento','Fluxo simples e testado']}
 };
+const svcs=document.getElementById('svcs');
+svcs.innerHTML=Object.entries(SV).map(([k,s])=>`<article class="plan"><h3>${s.n}</h3><div class="price" style="font-size:1.6rem">${s.p}</div><p class="note">${s.t}</p><ul>${s.f.map(f=>`<li>${f}</li>`).join('')}</ul><button class="btn ghost" data-k="${k}">Quero saber mais</button></article>`).join('');
+svcs.onclick=e=>{
+  const b=e.target.closest('button[data-k]');if(!b)return;
+  document.getElementById('chat').scrollIntoView({behavior:'smooth'});
+  start(b.dataset.k);
+};
+
+/* Assistente de pré-venda (guiado, sem IA paga e sem chave exposta) */
+const log=document.getElementById('clog'),opts=document.getElementById('copts'),cform=document.getElementById('cform'),cin=document.getElementById('cin'),csend=document.getElementById('csend');
+let st={},waiting=null;
+function bot(t,pre){const d=document.createElement('div');d.className='msg bot'+(pre?' pre':'');d.textContent=t;log.append(d);log.scrollTop=log.scrollHeight}
+function say(t){const d=document.createElement('div');d.className='msg me';d.textContent=t;log.append(d);log.scrollTop=log.scrollHeight}
+function setInput(on){cin.disabled=!on;csend.disabled=!on;if(on)cin.focus()}
+function chip(label,fn){const b=document.createElement('button');b.type='button';b.className='chip';b.textContent=label;b.onclick=()=>{opts.innerHTML='';fn()};return b}
+function ask(q,choices,h){opts.innerHTML='';setInput(false);waiting=null;bot(q);choices.forEach(c=>opts.append(chip(c,()=>{say(c);h(c)})))}
+function askText(q,h){opts.innerHTML='';bot(q);waiting=h;setInput(true)}
+function finish(m){bot(m);setInput(false);opts.innerHTML='';opts.append(chip('Começar de novo',()=>start()))}
+cform.onsubmit=e=>{
+  e.preventDefault();const v=cin.value.trim();
+  if(!v||!waiting)return;
+  const h=waiting;waiting=null;cin.value='';setInput(false);say(v);h(v);
+};
+
+function start(preset){
+  log.innerHTML='';opts.innerHTML='';st={};waiting=null;setInput(false);
+  bot('Olá! Eu sou o assistente da Debugou. Faço uma pergunta por vez e você decide o que compartilhar.');
+  if(preset&&SV[preset]){
+    st.serv=preset;st.cat='Interesse escolhido na página: '+SV[preset].n;
+    st.scope=preset==='inst'?'várias páginas':preset==='landing'?'uma página':'a definir após conversa';
+    return stepBiz();
+  }
+  stepStart();
+}
+function stepStart(){
+  const cats={'Não tenho site':'landing','Quero aparecer no Google':'gmb','Quero anunciar no Instagram ou Facebook':'meta','Quero automatizar tarefas':'auto'};
+  ask('O que você quer resolver hoje?',['Não tenho site','Tenho site, mas não atrai clientes','Quero aparecer no Google','Quero anunciar no Instagram ou Facebook','Quero automatizar tarefas','Outra coisa'],v=>{
+    st.cat=v;
+    if(v==='Outra coisa')return finish('Entendi. Esse caso precisa de uma conversa mais detalhada, então não consigo indicar um serviço com segurança por aqui. Você pode voltar com um pedido mais específico.');
+    if(v==='Tenho site, mas não atrai clientes')return ask('Seu projeto precisa de uma página ou de várias?',['Uma página','Várias páginas'],s=>{
+      st.serv=s==='Uma página'?'landing':'inst';st.scope=s.toLowerCase();stepBiz();
+    });
+    st.serv=cats[v];st.scope=st.serv==='landing'?'uma página':'a definir após conversa';stepBiz();
+  });
+}
+function stepBiz(){askText('Qual é o seu negócio?',v=>{st.biz=v;stepDetail()})}
+function stepDetail(){askText('Em uma frase, o que está travando seu negócio hoje?',v=>{st.detail=v;stepPrice()})}
+function stepPrice(){
+  ask(`Para ${SV[st.serv].n}, o valor de referência é ${SV[st.serv].p}. O valor final depende do escopo, que eu avalio antes de passar um orçamento fechado. Esse valor faz sentido para você?`,
+    ['Sim, faz sentido','Está acima do que posso pagar','Preciso pensar'],
+    v=>{if(v!=='Sim, faz sentido')return finish('Tudo bem. Quando o projeto estiver mais definido, é só voltar aqui. Nenhum dado foi encaminhado.');stepIntent()});
+}
+function stepIntent(){
+  ask('Você quer avançar para uma proposta agora?',['Sim, quero avançar','Só estou pesquisando'],
+    v=>{if(v!=='Sim, quero avançar')return finish('Sem problemas. Nenhum dado foi encaminhado. Volte quando quiser avançar.');stepPrazo()});
+}
+function stepPrazo(){ask('Qual é o seu prazo desejado?',['Até 15 dias','Até 30 dias','Sem pressa'],v=>{st.prazo=v;stepConsent()})}
+function stepConsent(){
+  ask('Para montar a proposta, posso preparar um resumo com seu nome e contato para a Layse? Você escolhe se envia pelo WhatsApp.',['Sim, autorizo','Não autorizo'],
+    v=>{if(v!=='Sim, autorizo')return finish('Sem problemas. Nenhum dado foi encaminhado.');stepName()});
+}
+function stepName(){askText('Qual é o seu nome?',v=>{st.name=v;stepContact()})}
+function stepContact(){askText('Qual é o melhor WhatsApp ou e-mail para contato?',v=>{st.contact=v;stepSend()})}
+function summary(){
+  return [
+    'Nome: '+st.name,
+    'Negócio: '+st.biz,
+    'Problema: '+st.detail,
+    'Interesse inicial: '+st.cat,
+    'Serviço recomendado: '+SV[st.serv].n,
+    'Escopo preliminar: '+st.scope,
+    'Faixa apresentada: '+SV[st.serv].p,
+    'Valor viável: confirmado pelo visitante',
+    'Prazo desejado: '+st.prazo,
+    'Dúvidas pendentes: nenhuma registrada no chat',
+    'Contato autorizado: '+st.contact,
+    'Intenção: confirmou que quer avançar para uma proposta'
+  ].join('\n');
+}
+function stepSend(){
+  const s=summary();
+  bot('Este é o resumo que será enviado para a Layse. Ele só sai se você clicar no botão abaixo:');
+  bot(s,true);
+  setInput(false);opts.innerHTML='';
+  opts.append(chip('Enviar resumo pelo WhatsApp',()=>{
+    open_('Olá, Layse! Vim pelo site da Debugou e quero uma proposta.\n\n'+s);
+    finish('Pronto! Se o WhatsApp não abriu, copie o resumo acima e envie para o número da Layse.');
+  }));
+}
 
 /* Upload de briefing */
 const drop=document.getElementById('drop'),inp=document.getElementById('pdf'),err=document.getElementById('err'),fn=document.getElementById('fname'),send=document.getElementById('sendPdf');
