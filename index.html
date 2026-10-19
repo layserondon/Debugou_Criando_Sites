@@ -114,9 +114,26 @@ input[type=text]{font:inherit;padding:11px 14px;border:1.5px solid var(--line);b
 .faq summary{cursor:pointer;font:500 1.02rem 'Space Grotesk'}
 .faq p{color:var(--mute);margin-top:10px;font-size:.95rem}
 @media(max-width:860px){.steps{grid-template-columns:1fr}.clog{height:360px}.msg{max-width:95%}}
+.gou-hint{margin-top:-8px;color:var(--ink)!important;background:#fff;border:1.5px dashed var(--blue);padding:12px 14px;border-radius:12px;max-width:46ch;font-size:.98rem}
+.gou-cta{background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px;max-width:640px}
+.gou-cta p{color:var(--ink);font-size:1.02rem;margin-bottom:14px}
+.gou-cta .note{margin-top:12px}
+.gou-fab{position:fixed;right:20px;bottom:20px;z-index:60;display:flex;align-items:center;gap:10px;background:linear-gradient(135deg,var(--blue),#6FA0FF);color:#fff;border:0;border-radius:999px;padding:10px 18px 10px 10px;box-shadow:0 14px 30px -10px rgba(36,87,255,.6);cursor:pointer;font:500 1rem 'IBM Plex Sans',sans-serif}
+.gou-fab:hover{transform:translateY(-2px)}
+.gou-fab .av{width:42px;height:42px;border-radius:50%;background:#fff;color:var(--blue);display:grid;place-items:center;font:700 .95rem 'Space Grotesk';flex:none}
+.gou-panel{position:fixed;right:20px;bottom:92px;z-index:61;width:min(380px,calc(100vw - 40px));height:min(580px,72vh);background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:0 24px 50px -20px rgba(14,27,46,.45);display:none;flex-direction:column;overflow:hidden}
+.gou-panel.on{display:flex}
+.gou-head{display:flex;justify-content:space-between;align-items:center;padding:14px 16px;background:var(--ink);color:#fff}
+.gou-head button{background:none;border:0;color:#fff;font-size:1.5rem;line-height:1;cursor:pointer;padding:0 4px}
+.gou-panel .clog{height:auto;flex:1;min-height:0;padding:16px;background:#FBFCFF}
+.gou-panel .copts{max-height:150px;overflow-y:auto;padding-bottom:4px}
+.gou-panel .cform{margin-top:8px}
+@media(max-width:520px){.gou-panel{right:12px;left:12px;width:auto;bottom:86px;height:72vh}.gou-fab span:last-child{display:none}.gou-fab{padding:8px}}
 footer{border-top:1px solid var(--line);padding:30px 0;color:var(--mute);font-size:.9rem}
 footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
-.models{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.models{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.models[hidden]{display:none}
+.soon{display:inline-block;font:500 .72rem 'IBM Plex Sans';background:#FFE8B3;color:#7A4B00;border-radius:999px;padding:3px 9px;vertical-align:middle;margin-left:6px}
 .model{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;display:flex;flex-direction:column;gap:14px}
 .mock{border-radius:12px;overflow:hidden;border:1px solid var(--line);background:var(--mb);color:var(--mt);transition:transform .25s,box-shadow .25s}
 .model:hover .mock{transform:translateY(-4px) rotate(-.6deg);box-shadow:0 18px 34px -18px rgba(14,27,46,.5)}
@@ -128,7 +145,6 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 .mbtn{justify-self:start;background:var(--ma);color:var(--mb);font:500 .76rem 'IBM Plex Sans';padding:6px 12px;border-radius:7px}
 .mrow{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-top:6px}
 .mrow i{height:34px;border-radius:7px;background:currentColor;opacity:.12}
-.model:last-child:nth-child(3n+1){grid-column:1/-1;max-width:calc((100% - 40px)/3);justify-self:center}
 .mact{display:flex;gap:10px;flex-wrap:wrap}.mact .btn{padding:10px 16px;font-size:.92rem}
 .model h3{font-size:1.2rem}
 .model p{color:var(--mute);font-size:.94rem;flex:1}
@@ -163,7 +179,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 <body>
 <nav><div class="wrap">
   <a class="logo" href="#top">Debug<b>ou</b></a>
-  <ul><li><a href="#quem">Quem faz</a></li><li><a href="#caminhos">Como criar</a></li><li><a href="#modelos">Modelos</a></li><li><a href="#planos">Serviços</a></li><li><a href="#chat">Assistente</a></li><li><a href="#briefing">Briefing</a></li></ul>
+  <ul><li><a href="#quem">Quem faz</a></li><li><a href="#caminhos">Como criar</a></li><li><a href="#modelos">Modelos</a></li><li><a href="#planos">Serviços</a></li><li><a href="#chat" data-open-gou>Fale com o Gou</a></li><li><a href="#briefing">Briefing</a></li></ul>
   <a class="btn" href="#planos">Ver planos</a>
 </div></nav>
 
@@ -172,10 +188,11 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
   <div>
     <h1>Seu negócio tem um bug de presença online. A gente acha e corrige.</h1>
     <p>Criação de sites e landing pages para pequenos negócios: domínio, hospedagem e Perfil da Empresa no Google para você ser encontrado e levado a sério.</p>
-    <div class="row"><a class="btn" href="#chat">Falar com o assistente</a><button class="btn ghost" id="runTop">Rodar o debug</button></div>
+    <p class="gou-hint"><b>Quer identificar as dores do seu negócio e as soluções certas?</b> Converse com o Gou, no botão no canto inferior direito da tela.</p>
+    <div class="row"><a class="btn" href="#chat" data-open-gou>Conversar com o Gou</a><button class="btn ghost" id="runTop">Rodar o debug</button></div>
   </div>
   <div class="term" aria-live="polite">
-    <div class="term-bar"><i></i><i></i><i></i><span>diagnostico: seunegocio.com.br</span></div>
+    <div class="term-bar"><i></i><i></i><i></i><span>diagnóstico: exemplo ilustrativo</span></div>
     <ul id="bugs">
       <li><span class="ic">✕</span><span data-bad="Não aparece quando o cliente pesquisa no Google" data-ok="Perfil no Google com mapa, horário e avaliações">Não aparece quando o cliente pesquisa no Google</span></li>
       <li><span class="ic">✕</span><span data-bad="Sem site próprio, só redes sociais" data-ok="Landing page no ar com domínio próprio">Sem site próprio, só redes sociais</span></li>
@@ -218,31 +235,27 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 
 <section class="wrap" id="planos">
   <h2>Serviços e valores de referência.</h2>
-  <p class="lead">Os valores são pontos de partida. Antes de qualquer orçamento fechado, eu avalio o escopo do seu projeto.</p>
-  <p class="lead" style="margin-top:-18px"><b>Para conversar com o assistente, selecione um dos serviços abaixo.</b></p>
-  <div class="svcs" id="svcs"></div>
+  <p class="lead">A Debugou atende empresas e profissionais de Petrolina-PE e região, e também negócios de outras cidades de forma remota. Os valores são pontos de partida. Antes de qualquer orçamento fechado, eu avalio o escopo do seu projeto.</p>
+  <div class="svcs" id="svcs"><article class="plan"><h3>Landing page</h3><div class="price" style="font-size:1.6rem">a partir de R$ 800</div><p class="note">Uma página para apresentar seu negócio e receber contatos. <a class="note" href="/criacao-de-landing-pages-petrolina/" style="color:var(--blue);font-weight:500">Saiba mais sobre landing pages em Petrolina</a></p><ul><li>Página com proposta de valor e serviços</li><li>Botão de WhatsApp</li><li>Adaptada ao celular</li></ul><button class="btn ghost" data-k="landing">Quero saber mais</button></article><article class="plan"><h3>Site institucional</h3><div class="price" style="font-size:1.6rem">a partir de R$ 1.300</div><p class="note">Várias páginas para quem precisa de mais detalhes.</p><ul><li>Páginas como sobre, serviços e contato</li><li>Adaptado ao celular</li><li>Estrutura organizada para os buscadores</li></ul><button class="btn ghost" data-k="inst">Quero saber mais</button></article><article class="plan"><h3>Perfil da Empresa no Google</h3><div class="price" style="font-size:1.6rem">referência de R$ 250 a R$ 450</div><p class="note">Para aparecer na busca e no mapa.</p><ul><li>Configuração do perfil</li><li>Categorias e informações do negócio</li></ul><button class="btn ghost" data-k="gmb">Quero saber mais</button></article><article class="plan"><h3>Anúncios Meta</h3><div class="price" style="font-size:1.6rem">referência de R$ 350 a R$ 600</div><p class="note">Configuração inicial de anúncios no Instagram e Facebook.</p><ul><li>Configuração inicial da conta de anúncios</li><li>Público e objetivo definidos com você</li></ul><button class="btn ghost" data-k="meta">Quero saber mais</button></article><article class="plan"><h3>Automações simples</h3><div class="price" style="font-size:1.6rem">referência de R$ 400 a R$ 1.000</div><p class="note">Tarefas repetitivas resolvidas automaticamente.</p><ul><li>Escopo avaliado antes do orçamento</li><li>Fluxo simples e testado</li></ul><button class="btn ghost" data-k="auto">Quero saber mais</button></article></div>
   <p class="note">Domínio e hospedagem são custos anuais à parte, informados antes do fechamento.</p>
 </section>
 
 <section class="wrap" id="como">
   <h2>Como funciona.</h2>
   <div class="steps">
-    <div class="step"><b>1</b><h3>Conte seu caso</h3><p>O assistente pergunta uma coisa por vez para entender seu negócio.</p></div>
+    <div class="step"><b>1</b><h3>Conte seu caso</h3><p>O Gou pergunta uma coisa por vez para entender as dores do seu negócio.</p></div>
     <div class="step"><b>2</b><h3>Veja a faixa de preço</h3><p>Você sabe o valor de referência antes de decidir qualquer coisa.</p></div>
     <div class="step"><b>3</b><h3>Você decide o envio</h3><p>Seus dados só vão para a Layse se você autorizar e clicar em enviar.</p></div>
   </div>
 </section>
 
 <section class="wrap" id="chat">
-  <h2>Fale com o assistente.</h2>
-  <p class="lead">Selecione um serviço em “Serviços e valores de referência” e clique em “Quero saber mais”. Assim o assistente já começa com o serviço escolhido e entende o seu caso.</p>
-  <div class="chat">
-    <div class="clog" id="clog" aria-live="polite"><div class="msg bot">Para começar, selecione um serviço na seção acima. Depois eu faço algumas perguntas, uma por vez.</div></div>
-    <div class="copts" id="copts"></div>
-    <form class="cform" id="cform">
-      <input type="text" id="cin" placeholder="Digite sua resposta..." aria-label="Sua resposta" maxlength="300" autocomplete="off" disabled>
-      <button class="btn" id="csend" type="submit" disabled>Enviar</button>
-    </form>
+  <h2>Descubra as dores do seu negócio com o Gou.</h2>
+  <p class="lead">O Gou identifica o que está travando o seu negócio, mostra a solução ideal e a faixa de preço de referência.</p>
+  <div class="gou-cta">
+    <p><b>Para identificar as dores do seu negócio e as soluções certas, converse com o Gou.</b> Ele faz uma pergunta por vez, e você decide o que compartilhar.</p>
+    <button class="btn" type="button" data-open-gou>Conversar com o Gou</button>
+    <p class="note">O Gou fica no canto inferior direito da tela, em todas as partes do site.</p>
   </div>
 </section>
 
@@ -273,6 +286,16 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 </section>
 </main>
 
+<button class="gou-fab" id="gouFab" type="button" aria-expanded="false" aria-controls="gouPanel"><span class="av">Gou</span><span>Fale com o Gou</span></button>
+<div class="gou-panel" id="gouPanel" role="dialog" aria-label="Conversa com o Gou">
+  <div class="gou-head"><span><b>Gou</b> · assistente da Debugou</span><button type="button" id="gouClose" aria-label="Fechar">×</button></div>
+  <div class="clog" id="clog" aria-live="polite"></div>
+  <div class="copts" id="copts"></div>
+  <form class="cform" id="cform">
+    <input type="text" id="cin" placeholder="Digite sua resposta..." aria-label="Sua resposta" maxlength="300" autocomplete="off" disabled>
+    <button class="btn" id="csend" type="submit" disabled>Enviar</button>
+  </form>
+</div>
 <footer><div class="wrap"><span>Debugou · Criação de sites para pequenos negócios · Layse Rondon · Petrolina-PE</span><a href="https://wa.me/5511997980272" target="_blank" rel="noopener">WhatsApp</a></div></footer>
 
 <script>
@@ -315,21 +338,39 @@ ways.forEach((w,i)=>{
 
 /* Modelos */
 const models=[
- {n:'Marido de aluguel',u:'https://maridodealuguel-reparos.lovable.app',bg:'#FFF7E6',ac:'#F28C18',tx:'#2A2113',l:'Marido de Aluguel',h:'Reparos e pequenos serviços para a sua casa',c:'Pedir orçamento',d:'Modelo para quem faz reparos e pequenos serviços residenciais.'},
- {n:'Hidráulica',u:'https://hidraulica-solucoes.lovable.app',bg:'#EAF6FF',ac:'#0E7FD6',tx:'#0A2A43',l:'Hidráulica Soluções',h:'Vazamentos e desentupimentos com rapidez',c:'Chamar agora',d:'Modelo para encanadores e desentupidoras, com foco em contato rápido.'},
- {n:'Elétrica',u:'https://eletrica-solucoes.lovable.app',bg:'#0F172A',ac:'#FFC933',tx:'#FFFFFF',l:'Elétrica Soluções',h:'Instalações e reparos elétricos com segurança',c:'Chamar agora',d:'Modelo para eletricistas, com serviços e contato direto.'},
- {n:'Imobiliária',u:'https://modelo-imob.lovable.app/',bg:'#F7F5F0',ac:'#1F4E79',tx:'#1B2430',l:'Modelo Imob',h:'Encontre o imóvel certo para você',c:'Ver imóveis',d:'Modelo para imobiliárias e corretores apresentarem seus imóveis.'},
- {n:'Floricultura',u:'https://flora-atelier.lovable.app',bg:'#FFF1F3',ac:'#D9486B',tx:'#3A1A22',l:'Flora Atelier',h:'Flores e arranjos para cada momento',c:'Fazer pedido',d:'Modelo para floriculturas e ateliês, com vitrine de arranjos.'},
- {n:'Fisioterapeuta',u:'https://physio-embrace.lovable.app',bg:'#EFF8F6',ac:'#1C9A8A',tx:'#0E3530',l:'Physio Embrace',h:'Movimento e bem-estar com cuidado',c:'Agendar avaliação',d:'Modelo para fisioterapeutas e clínicas de reabilitação.'},
- {n:'Assistência técnica',u:'https://assistencia-smartphone.lovable.app',bg:'#F3F0FF',ac:'#6A4DF5',tx:'#1D1640',l:'Assistência Smartphone',h:'Seu celular de volta funcionando',c:'Pedir orçamento',d:'Modelo para assistências técnicas de celulares e eletrônicos.'}
+ {n:'Serviços residenciais',bg:'#FFF7E6',ac:'#F28C18',tx:'#2A2113',l:'Reparos residenciais',h:'Reparos e pequenos serviços para a sua casa',c:'Pedir orçamento',d:'Modelos para quem presta serviços residenciais.',links:[['Marido de aluguel','https://maridodealuguel-reparos.lovable.app'],['Hidráulica','https://hidraulica-solucoes.lovable.app'],['Elétrica','https://eletrica-solucoes.lovable.app']]},
+ {n:'Fisioterapeuta',bg:'#EFF8F6',ac:'#1C9A8A',tx:'#0E3530',l:'Physio Embrace',h:'Movimento e bem-estar com cuidado',c:'Agendar avaliação',d:'Modelo para fisioterapeutas e clínicas de reabilitação.',links:[['Ver modelo','https://physio-embrace.lovable.app']]},
+ {n:'Odontologia',bg:'#EEF7FB',ac:'#1A7FA6',tx:'#0B2E3D',l:'Sorriso Esmeralda',h:'Seu sorriso com cuidado e atenção',c:'Agendar consulta',d:'Modelo para consultórios e clínicas odontológicas.',links:[['Ver modelo','https://sorriso-esmeralda.lovable.app']]},
+ {n:'Oficinas e lava jatos',soon:1,bg:'#1F2933',ac:'#FF7A1A',tx:'#FFFFFF',l:'Oficina e Lava Jato',h:'Seu carro limpo e revisado',c:'Agendar serviço',d:'Modelo para oficinas mecânicas e lava jatos.',links:[]},
+ {n:'Escritório de advocacia',bg:'#F4F6FA',ac:'#1B365D',tx:'#14213D',l:'Vasconcelos Advogados',h:'Orientação jurídica com clareza',c:'Falar com advogado',d:'Site institucional para escritórios de advocacia.',links:[['Ver modelo','https://vasconcelos-advogados.lovable.app/']]}
 ];
+const hiddenModels=[
+ {n:'Contabilidade',soon:1,bg:'#EEF6FF',ac:'#0B5CAD',tx:'#0B2447',l:'Contabilidade Clara',h:'Suas contas em dia, sem complicação',c:'Falar com contador',d:'Modelo para escritórios de contabilidade.',links:[]},
+ {n:'Imobiliária',bg:'#F7F5F0',ac:'#1F4E79',tx:'#1B2430',l:'Modelo Imob',h:'Encontre o imóvel certo para você',c:'Ver imóveis',d:'Modelo para imobiliárias e corretores apresentarem seus imóveis.',links:[['Ver modelo','https://modelo-imob.lovable.app/']]},
+ {n:'Floricultura',bg:'#FFF1F3',ac:'#D9486B',tx:'#3A1A22',l:'Flora Atelier',h:'Flores e arranjos para cada momento',c:'Fazer pedido',d:'Modelo para floriculturas e ateliês, com vitrine de arranjos.',links:[['Ver modelo','https://flora-atelier.lovable.app']]},
+ {n:'Assistência técnica',bg:'#F3F0FF',ac:'#6A4DF5',tx:'#1D1640',l:'Assistência Smartphone',h:'Seu celular de volta funcionando',c:'Pedir orçamento',d:'Modelo para assistências técnicas de celulares e eletrônicos.',links:[['Ver modelo','https://assistencia-smartphone.lovable.app']]}
+];
+const groups={v:models,h:hiddenModels};
+function modelCard(m,i,g){
+  const links=m.links.map(([lab,u])=>`<a class="btn ghost" href="${u}" target="_blank" rel="noopener">${lab} ↗</a>`).join('');
+  const action=m.soon?'<button class="btn" type="button" disabled>Em breve</button>':`<button class="btn" type="button" data-m="${g}:${i}">Quero este</button>`;
+  return `<article class="model"><div class="mock" style="--mb:${m.bg};--ma:${m.ac};--mt:${m.tx}" aria-hidden="true"><div class="mbar"><i></i><i></i><i></i></div><div class="mbody"><small>${m.l}</small><b>${m.h}</b><span class="mbtn">${m.c}</span><div class="mrow"><i></i><i></i><i></i></div></div></div><h3>${m.n}${m.soon?' <span class="soon">Em breve</span>':''}</h3><p>${m.d}</p><div class="mact">${links}${action}</div></article>`;
+}
 const me=document.getElementById('models');
-me.innerHTML=models.map((m,i)=>`<article class="model"><div class="mock" style="--mb:${m.bg};--ma:${m.ac};--mt:${m.tx}" aria-hidden="true"><div class="mbar"><i></i><i></i><i></i></div><div class="mbody"><small>${m.l}</small><b>${m.h}</b><span class="mbtn">${m.c}</span><div class="mrow"><i></i><i></i><i></i></div></div></div><h3>${m.n}</h3><p>${m.d}</p><div class="mact"><a class="btn ghost" href="${m.u}" target="_blank" rel="noopener">Ver modelo ao vivo</a><button class="btn" data-m="${i}">Quero este</button></div></article>`).join('');
-me.onclick=e=>{
+me.innerHTML=models.map((m,i)=>modelCard(m,i,'v')).join('');
+const mb=document.createElement('button');
+mb.type='button';mb.className='btn ghost';mb.textContent='Mostrar mais modelos';mb.style.marginTop='20px';
+mb.setAttribute('aria-expanded','false');mb.setAttribute('aria-controls','modelsMore');
+const more=document.createElement('div');
+more.className='models';more.id='modelsMore';more.hidden=true;more.style.marginTop='20px';
+more.innerHTML=hiddenModels.map((m,i)=>modelCard(m,i,'h')).join('');
+me.after(mb);mb.after(more);
+mb.onclick=()=>{const open=more.hidden;more.hidden=!open;mb.textContent=open?'Mostrar menos':'Mostrar mais modelos';mb.setAttribute('aria-expanded',String(open))};
+document.addEventListener('click',e=>{
   const b=e.target.closest('button[data-m]');if(!b)return;
-  const m=models[b.dataset.m],biz=(document.getElementById('biz')||{}).value;
-  open_(`Olá! Vim pelo site Debugou e gostei do modelo ${m.n}. Quero uma landing page nesse estilo${biz&&biz.trim()?' para o meu negócio: '+biz.trim():''}. Pode me passar mais informações?`);
-};
+  const [g,i]=b.dataset.m.split(':');const m=groups[g][i];
+  open_(`Olá! Vim pelo site Debugou e gostei do modelo ${m.n}. Quero uma landing page nesse estilo. Pode me passar mais informações?`);
+});
 
 /* Serviços */
 const SV={
@@ -340,11 +381,9 @@ const SV={
  auto:{n:'Automações simples',p:'referência de R$ 400 a R$ 1.000',t:'Tarefas repetitivas resolvidas automaticamente.',f:['Escopo avaliado antes do orçamento','Fluxo simples e testado']}
 };
 const svcs=document.getElementById('svcs');
-svcs.innerHTML=Object.entries(SV).map(([k,s])=>`<article class="plan"><h3>${s.n}</h3><div class="price" style="font-size:1.6rem">${s.p}</div><p class="note">${s.t}</p><ul>${s.f.map(f=>`<li>${f}</li>`).join('')}</ul><button class="btn ghost" data-k="${k}">Quero saber mais</button></article>`).join('');
 svcs.onclick=e=>{
   const b=e.target.closest('button[data-k]');if(!b)return;
-  document.getElementById('chat').scrollIntoView({behavior:'smooth'});
-  start(b.dataset.k);
+  openGou(b.dataset.k);
 };
 
 /* Assistente de pré-venda (guiado, sem IA paga e sem chave exposta) */
@@ -356,6 +395,17 @@ function setInput(on){cin.disabled=!on;csend.disabled=!on;if(on)cin.focus()}
 function chip(label,fn){const b=document.createElement('button');b.type='button';b.className='chip';b.textContent=label;b.onclick=()=>{opts.innerHTML='';fn()};return b}
 function ask(q,choices,h){opts.innerHTML='';setInput(false);waiting=null;bot(q);choices.forEach(c=>opts.append(chip(c,()=>{say(c);h(c)})))}
 function askText(q,h){opts.innerHTML='';bot(q);waiting=h;setInput(true)}
+let gouStarted=false;
+const fab=document.getElementById('gouFab'),gpanel=document.getElementById('gouPanel');
+function openGou(preset){
+  gpanel.classList.add('on');fab.setAttribute('aria-expanded','true');
+  if(preset||!gouStarted){gouStarted=true;start(preset)}
+  if(!cin.disabled)cin.focus();
+}
+function closeGou(){gpanel.classList.remove('on');fab.setAttribute('aria-expanded','false')}
+fab.onclick=()=>gpanel.classList.contains('on')?closeGou():openGou();
+document.getElementById('gouClose').onclick=closeGou;
+document.querySelectorAll('[data-open-gou]').forEach(el=>el.addEventListener('click',e=>{e.preventDefault();openGou()}));
 function finish(m){bot(m);setInput(false);opts.innerHTML='';opts.append(chip('Começar de novo',()=>start()))}
 cform.onsubmit=e=>{
   e.preventDefault();const v=cin.value.trim();
@@ -365,7 +415,7 @@ cform.onsubmit=e=>{
 
 function start(preset){
   log.innerHTML='';opts.innerHTML='';st={};waiting=null;setInput(false);
-  bot('Olá! Eu sou o assistente da Debugou. Faço uma pergunta por vez e você decide o que compartilhar.');
+  bot('Olá! Eu sou o Gou, assistente da Debugou. Vou identificar as dores do seu negócio e as soluções certas. Faço uma pergunta por vez e você decide o que compartilhar.');
   if(preset&&SV[preset]){
     st.serv=preset;st.cat='Interesse escolhido na página: '+SV[preset].n;
     st.scope=preset==='inst'?'várias páginas':preset==='landing'?'uma página':'a definir após conversa';
