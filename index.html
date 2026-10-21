@@ -19,9 +19,9 @@ h1,h2,h3{font-family:'Plus Jakarta Sans',sans-serif;line-height:1.1;letter-spaci
 a{color:inherit}
 :focus-visible{outline:3px solid var(--lime);outline-offset:3px;border-radius:6px}
 .wrap{max-width:1080px;margin:0 auto;padding:0 20px}
-section{padding:116px 0}
-h2{font-size:clamp(1.9rem,4vw,2.7rem);margin-bottom:14px;max-width:22ch}
-.lead{color:var(--mute);max-width:58ch;margin-bottom:40px}
+section{padding:150px 0}
+h2{font-size:clamp(1.9rem,4vw,2.7rem);margin-bottom:24px;max-width:22ch}
+.lead{color:var(--mute);max-width:58ch;margin-bottom:56px}
 .btn{display:inline-block;border:0;cursor:pointer;font:700 1rem 'Plus Jakarta Sans',sans-serif;padding:14px 24px;border-radius:12px;background:var(--lime);color:#0B0B0B;text-decoration:none;transition:transform .15s,box-shadow .2s,background .2s}
 .btn:hover{transform:translateY(-2px);box-shadow:0 12px 30px -10px rgba(183,255,0,.55)}
 .btn:disabled{opacity:.45;cursor:default;transform:none;box-shadow:none}
@@ -35,13 +35,13 @@ nav ul{display:flex;gap:24px;list-style:none;padding:0}
 nav ul a{text-decoration:none;color:var(--mute);font-size:.95rem}
 nav ul a:hover{color:var(--ink)}
 nav .btn{padding:10px 18px;font-size:.92rem}
-.hero{padding-top:64px;display:grid;grid-template-columns:1.1fr .9fr;gap:44px;align-items:center}
-.hero h1{font-size:clamp(2.4rem,5.6vw,4rem);margin-bottom:20px}
+.hero{padding-top:80px;display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:center}
+.hero h1{font-size:clamp(2.4rem,5.6vw,4rem);margin-bottom:32px}
 .hero h1 span{color:var(--lime)}
-.hero p{color:var(--mute);font-size:1.1rem;max-width:46ch;margin-bottom:24px}
+.hero p{color:var(--mute);font-size:1.1rem;max-width:46ch;margin-bottom:40px}
 .hero .gou-hint{color:var(--ink);background:rgba(183,255,0,.06);border:1px dashed var(--lime);padding:14px 16px;border-radius:14px;max-width:48ch;font-size:.98rem;margin-bottom:0}
 .hero .gou-hint b{color:var(--lime)}
-.row{display:flex;gap:12px;flex-wrap:wrap}
+.row{display:flex;gap:20px;flex-wrap:wrap}
 .term{background:var(--glass);border:1px solid var(--line);border-radius:18px;backdrop-filter:blur(14px);box-shadow:0 30px 60px -30px rgba(183,255,0,.25);overflow:hidden}
 .term-bar{display:flex;align-items:center;gap:6px;padding:12px 16px;border-bottom:1px solid var(--line);background:rgba(255,255,255,.03);font:.85rem ui-monospace,Menlo,monospace;color:var(--mute)}
 .term-bar i{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.2)}
@@ -54,40 +54,40 @@ nav .btn{padding:10px 18px;font-size:.92rem}
 .term li.fixed .ic{background:var(--lime);transform:scale(1.1)}
 .term-foot{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:14px 18px;border-top:1px solid var(--line);font:.85rem ui-monospace,Menlo,monospace;color:var(--mute)}
 .term-foot button{font:700 .9rem 'Plus Jakarta Sans',sans-serif;background:var(--lime);color:#0B0B0B;border:0;border-radius:8px;padding:9px 16px;cursor:pointer}
-.glass-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-.glass{background:var(--glass);border:1px solid var(--line);border-radius:18px;padding:24px;backdrop-filter:blur(14px);transition:transform .2s,border-color .2s}
+.glass-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:28px}
+.glass{background:var(--glass);border:1px solid var(--line);border-radius:18px;padding:32px;backdrop-filter:blur(14px);transition:transform .2s,border-color .2s}
 .glass:hover{transform:translateY(-4px);border-color:rgba(183,255,0,.45)}
 .glass .ico{width:44px;height:44px;border-radius:12px;background:rgba(183,255,0,.12);color:var(--lime);display:grid;place-items:center;font-size:1.2rem;font-weight:800;margin-bottom:14px}
 .glass h3{font-size:1.1rem;margin-bottom:6px}
 .glass p{color:var(--mute);font-size:.94rem}
-.who{display:grid;grid-template-columns:auto 1fr;gap:36px;align-items:start;background:var(--glass);border:1px solid var(--line);border-radius:22px;padding:36px;backdrop-filter:blur(14px)}
+.who{display:grid;grid-template-columns:auto 1fr;gap:44px;align-items:start;background:var(--glass);border:1px solid var(--line);border-radius:22px;padding:44px;backdrop-filter:blur(14px)}
 .avatar{width:140px;height:140px;border-radius:28px;object-fit:cover;display:block;border:2px solid var(--lime);box-shadow:0 0 40px -6px rgba(183,255,0,.45)}
 .who h2{max-width:24ch}
 .who p{color:var(--mute);margin-bottom:18px;max-width:62ch}
-.pts{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:22px 0}
+.pts{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin:32px 0}
 .pts div{border-left:3px solid var(--lime);padding:2px 0 2px 14px;font-size:.95rem;color:var(--mute)}
 .pts b{display:block;color:var(--ink);font-weight:700}
 .links{display:flex;gap:16px;flex-wrap:wrap}
 .links a{color:var(--lime);font-weight:600}
-.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.tabs{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:28px}
 .tab{border:1px solid var(--line);background:var(--glass);color:var(--ink);padding:10px 20px;border-radius:999px;font:600 1rem 'Plus Jakarta Sans',sans-serif;cursor:pointer}
 .tab[aria-selected=true]{background:var(--lime);border-color:var(--lime);color:#0B0B0B}
-.panel{background:var(--glass);border:1px solid var(--line);border-radius:18px;padding:28px;display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:28px;backdrop-filter:blur(14px)}
+.panel{background:var(--glass);border:1px solid var(--line);border-radius:18px;padding:36px;display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:40px;backdrop-filter:blur(14px)}
 .panel h3{font-size:1.5rem;margin-bottom:8px}
 .panel p,.panel li{color:var(--mute);font-size:.96rem}
 .panel h4{font:700 .95rem 'Plus Jakarta Sans',sans-serif;margin-bottom:4px;color:var(--lime)}
 .panel[hidden]{display:none}
-.svcs{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
-.plan{background:var(--glass);border:1px solid var(--line);border-radius:18px;padding:26px;display:flex;flex-direction:column;position:relative;backdrop-filter:blur(14px)}
+.svcs{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:28px}
+.plan{background:var(--glass);border:1px solid var(--line);border-radius:18px;padding:34px;display:flex;flex-direction:column;position:relative;backdrop-filter:blur(14px)}
 .plan h3{font-size:1.25rem}
 .price{font:800 1.6rem 'Plus Jakarta Sans',sans-serif;margin:10px 0 4px;color:var(--lime)}
 .plan ul{list-style:none;padding:0;margin:14px 0 22px;display:grid;gap:9px;font-size:.95rem;flex:1}
 .plan li{color:var(--mute)}
 .plan li::before{content:'✔';color:var(--lime);margin-right:9px}
 .plan .note{margin:0}
-.models{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.models{display:grid;grid-template-columns:repeat(2,1fr);gap:30px}
 .models[hidden]{display:none}
-.model{background:var(--glass);border:1px solid var(--line);border-radius:18px;padding:16px;display:flex;flex-direction:column;gap:14px;backdrop-filter:blur(14px)}
+.model{background:var(--glass);border:1px solid var(--line);border-radius:18px;padding:22px;display:flex;flex-direction:column;gap:22px;backdrop-filter:blur(14px)}
 .mock{border-radius:12px;overflow:hidden;border:1px solid var(--line);background:var(--mb);color:var(--mt);transition:transform .25s,box-shadow .25s}
 .model:hover .mock{transform:translateY(-4px);box-shadow:0 18px 34px -18px rgba(183,255,0,.35)}
 .mbar{display:flex;gap:5px;padding:8px 10px;background:rgba(0,0,0,.08)}
@@ -100,15 +100,15 @@ nav .btn{padding:10px 18px;font-size:.92rem}
 .mrow i{height:34px;border-radius:7px;background:currentColor;opacity:.12}
 .model h3{font-size:1.2rem}
 .model p{color:var(--mute);font-size:.94rem;flex:1}
-.mact{display:flex;gap:10px;flex-wrap:wrap}
+.mact{display:flex;gap:14px;flex-wrap:wrap}
 .mact .btn{padding:10px 16px;font-size:.92rem}
 .soon{display:inline-block;font:700 .72rem 'Plus Jakarta Sans',sans-serif;background:rgba(183,255,0,.15);color:var(--lime);border-radius:999px;padding:3px 9px;vertical-align:middle;margin-left:6px}
-.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.step{background:var(--glass);border:1px solid var(--line);border-radius:18px;padding:24px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.step{background:var(--glass);border:1px solid var(--line);border-radius:18px;padding:32px}
 .step b{display:inline-grid;place-items:center;width:36px;height:36px;border-radius:50%;background:var(--lime);color:#0B0B0B;font-weight:800;margin-bottom:12px}
 .step h3{font-size:1.15rem;margin-bottom:6px}
 .step p{color:var(--mute);font-size:.95rem}
-.gou-cta{background:var(--glass);border:1px solid var(--line);border-radius:18px;padding:26px;max-width:640px;backdrop-filter:blur(14px)}
+.gou-cta{background:var(--glass);border:1px solid var(--line);border-radius:18px;padding:34px;max-width:640px;backdrop-filter:blur(14px)}
 .gou-cta p{color:var(--ink);font-size:1.02rem;margin-bottom:14px}
 .gou-cta .note{margin-top:12px}
 .gou-fab{position:fixed;right:20px;bottom:20px;z-index:60;display:flex;align-items:center;gap:10px;background:var(--lime);color:#0B0B0B;border:0;border-radius:999px;padding:10px 18px 10px 10px;box-shadow:0 14px 34px -8px rgba(183,255,0,.55);cursor:pointer;font:700 1rem 'Plus Jakarta Sans',sans-serif}
@@ -143,7 +143,7 @@ input[type=text]:focus{outline:2px solid var(--lime);outline-offset:1px}
 .err{color:var(--bad);font-size:.92rem;margin-top:10px;min-height:1.2em}
 .note{color:var(--mute);font-size:.88rem;margin-top:14px}
 .faq{max-width:760px}
-.faq details{background:var(--glass);border:1px solid var(--line);border-radius:14px;padding:16px 20px;margin-bottom:10px}
+.faq details{background:var(--glass);border:1px solid var(--line);border-radius:14px;padding:18px 22px;margin-bottom:16px}
 .faq summary{cursor:pointer;font:700 1.02rem 'Plus Jakarta Sans',sans-serif;color:var(--ink)}
 .faq p{color:var(--mute);margin-top:10px;font-size:.95rem}
 footer{border-top:1px solid var(--line);padding:30px 0;color:var(--mute);font-size:.9rem;background:#0E0E0E}
@@ -152,7 +152,7 @@ footer a{color:var(--lime)}
 .intro{position:relative;height:100vh;height:100svh;min-height:520px;padding:0;overflow:hidden;background:#000}
 .intro video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
 .intro::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.55),transparent 45%);pointer-events:none}
-.intro-cta{position:absolute;left:0;right:0;bottom:12%;z-index:2;display:flex;gap:12px;justify-content:center;flex-wrap:wrap;padding:0 20px;opacity:0;transform:translateY(14px);transition:opacity .9s ease,transform .9s ease;pointer-events:none}
+.intro-cta{position:absolute;left:0;right:0;bottom:12%;z-index:2;display:flex;gap:18px;justify-content:center;flex-wrap:wrap;padding:0 20px;opacity:0;transform:translateY(14px);transition:opacity .9s ease,transform .9s ease;pointer-events:none}
 .intro.done .intro-cta{opacity:1;transform:none;pointer-events:auto}
 .intro-cta .btn{backdrop-filter:blur(8px)}
 .intro-cta .btn.ghost{background:rgba(10,10,10,.55)}
@@ -189,7 +189,7 @@ footer a{color:var(--lime)}
 <body>
 <nav><div class="wrap">
   <a class="logo" href="#top">Debug<b>ou</b></a>
-  <ul><li><a href="#quem">Quem faz</a></li><li><a href="#caminhos">Como criar</a></li><li><a href="#modelos">Modelos</a></li><li><a href="#planos">Serviços</a></li><li><a href="#chat" data-open-gou>Fale com o Gou</a></li><li><a href="#briefing">Briefing</a></li></ul>
+  <ul><li><a href="#quem">Quem faz</a></li><li><a href="#caminhos">Como criar</a></li><li><a href="#modelos">Modelos</a></li><li><a href="#planos">Serviços</a></li></ul>
   <a class="btn ghost" href="#chat" data-open-gou>Falar com o Gou</a>
 </div></nav>
 
@@ -208,7 +208,6 @@ footer a{color:var(--lime)}
   <div>
     <h1>Seu negócio merece um site que <span>gera oportunidades.</span></h1>
     <p>Landing pages profissionais para transformar visitantes em contatos pelo WhatsApp.</p>
-    <p class="gou-hint"><b>Quer identificar as dores do seu negócio?</b> Converse com o Gou, no canto inferior direito.</p>
     <div class="row"><a class="btn" href="#chat" data-open-gou>Quero atrair clientes →</a><button class="btn ghost" id="runTop">Rodar o debug</button></div>
   </div>
   <div class="term" aria-live="polite">
@@ -282,11 +281,7 @@ footer a{color:var(--lime)}
 <section class="wrap" id="chat">
   <h2>Descubra as dores do seu negócio com o Gou.</h2>
   <p class="lead">O Gou identifica o problema e mostra a solução e a faixa de preço.</p>
-  <div class="gou-cta">
-    <p><b>Para identificar as dores do seu negócio e as soluções certas, converse com o Gou.</b></p>
-    <button class="btn" type="button" data-open-gou>Conversar com o Gou</button>
-    <p class="note">O Gou fica no canto inferior direito, em todo o site.</p>
-  </div>
+  <div class="gou-cta"><p><b>Para identificar as dores do seu negócio e as soluções certas, converse com o Gou.</b></p></div>
 </section>
 
 <section class="wrap" id="faq">
@@ -301,19 +296,7 @@ footer a{color:var(--lime)}
     <details><summary>Vocês fazem automações?</summary><p>Automações simples têm referência de R$ 400 a R$ 1.000, conforme o caso.</p></details>
   </div>
 </section>
-<section class="wrap" id="briefing">
-  <h2>Já tem um briefing? Envie em PDF.</h2>
-  <p class="lead">Conte o que o seu negócio faz, o que vende e o que você espera do site. Eu leio e entro em contato.</p>
-  <div class="drop" id="drop">
-    <b>Arraste o PDF aqui</b>
-    <p>Somente PDF, até 10 MB.</p>
-    <input type="file" id="pdf" accept="application/pdf">
-    <button class="btn ghost" id="pick">Escolher arquivo</button>
-    <div class="file" id="fname"></div>
-    <div style="margin-top:18px"><button class="btn" id="sendPdf" hidden>Enviar briefing pelo WhatsApp</button></div>
-    <div class="err" id="err" role="alert"></div>
-  </div>
-</section>
+
 </main>
 
 <button class="gou-fab" id="gouFab" type="button" aria-expanded="false" aria-controls="gouPanel"><span class="av">Gou</span><span>Fale com o Gou</span></button>
@@ -321,6 +304,7 @@ footer a{color:var(--lime)}
   <div class="gou-head"><span><b>Gou</b> · assistente da Debugou</span><button type="button" id="gouClose" aria-label="Fechar">×</button></div>
   <div class="clog" id="clog" aria-live="polite"></div>
   <div class="copts" id="copts"></div>
+  <input type="file" id="briefFile" accept="application/pdf" hidden>
   <form class="cform" id="cform">
     <input type="text" id="cin" placeholder="Digite sua resposta..." aria-label="Sua resposta" maxlength="300" autocomplete="off" disabled>
     <button class="btn" id="csend" type="submit" disabled>Enviar</button>
@@ -495,7 +479,28 @@ function stepDetail(){askText('Em uma frase, o que está travando seu negócio h
 function stepPrice(){
   ask(`Para ${SV[st.serv].n}, o valor de referência é ${SV[st.serv].p}. O valor final depende do escopo, que eu avalio antes de passar um orçamento fechado. Esse valor faz sentido para você?`,
     ['Sim, faz sentido','Está acima do que posso pagar','Preciso pensar'],
-    v=>{if(v!=='Sim, faz sentido')return finish('Tudo bem. Quando o projeto estiver mais definido, é só voltar aqui. Nenhum dado foi encaminhado.');stepIntent()});
+    v=>{if(v==='Está acima do que posso pagar')return stepTrial();if(v!=='Sim, faz sentido')return finish('Tudo bem. Quando o projeto estiver mais definido, é só voltar aqui. Nenhum dado foi encaminhado.');stepIntent()});
+}
+function stepTrial(){
+  ask('Entendo. Tenho uma alternativa: um teste de 3 dias, sem o compromisso de pagar o valor integral. Você envia o seu briefing em PDF, eu crio o site para você testar e paga apenas as ferramentas usadas, como Claude e Higgsfield. Quer testar?',
+    ['Quero testar','Não, obrigado'],
+    v=>{
+      if(v!=='Quero testar')return finish('Sem problemas. Nenhum dado foi encaminhado. Se mudar de ideia, é só voltar aqui.');
+      st.trial=true;st.prazo='Teste de 3 dias';stepUpload();
+    });
+}
+function stepUpload(){
+  opts.innerHTML='';setInput(false);
+  bot('Envie o seu briefing em PDF (até 10 MB).');
+  const b=document.createElement('button');b.type='button';b.className='chip';b.textContent='Escolher PDF';
+  b.onclick=()=>briefFile.click();opts.append(b);
+  briefFile.value='';
+  briefFile.onchange=()=>{
+    const f=briefFile.files[0];if(!f)return;
+    if(!(f.type==='application/pdf'||f.name.toLowerCase().endsWith('.pdf'))){bot('Envie um arquivo PDF.');return}
+    if(f.size>10*1024*1024){bot('O PDF tem mais de 10 MB. Envie um arquivo menor.');return}
+    st.pdf=f;say('📄 '+f.name);opts.innerHTML='';stepConsent();
+  };
 }
 function stepIntent(){
   ask('Você quer avançar para uma proposta agora?',['Sim, quero avançar','Só estou pesquisando'],
@@ -515,6 +520,8 @@ function summary(){
     'Problema: '+st.detail,
     'Interesse inicial: '+st.cat,
     'Serviço recomendado: '+SV[st.serv].n,
+    st.trial?'Oferta: teste de 3 dias, pagando apenas as ferramentas usadas (Claude e Higgsfield)':'Oferta: proposta padrão',
+    'Briefing: '+(st.pdf?'PDF enviado ('+st.pdf.name+')':'não enviado'),
     'Escopo preliminar: '+st.scope,
     'Faixa apresentada: '+SV[st.serv].p,
     'Valor viável: confirmado pelo visitante',
@@ -529,35 +536,17 @@ function stepSend(){
   bot('Este é o resumo que será enviado para a Layse. Ele só sai se você clicar no botão abaixo:');
   bot(s,true);
   setInput(false);opts.innerHTML='';
-  opts.append(chip('Enviar resumo pelo WhatsApp',()=>{
-    open_('Olá, Layse! Vim pelo site da Debugou e quero uma proposta.\n\n'+s);
-    finish('Pronto! Se o WhatsApp não abriu, copie o resumo acima e envie para o número da Layse.');
+  opts.append(chip('Enviar resumo pelo WhatsApp',async()=>{
+    const text='Olá, Layse! Vim pelo site da Debugou e quero uma proposta.\n\n'+s;
+    if(st.pdf&&navigator.canShare&&navigator.canShare({files:[st.pdf]})){
+      try{await navigator.share({files:[st.pdf],text});finish('Pronto! O resumo e o briefing foram enviados.');return}
+      catch(e){if(e.name==='AbortError')return}
+    }
+    open_(text);
+    finish(st.pdf?'Pronto! O WhatsApp abriu com o resumo. Anexe o PDF do briefing na conversa.':'Pronto! Se o WhatsApp não abriu, copie o resumo acima e envie para o número da Layse.');
   }));
 }
 
-/* Upload de briefing */
-const drop=document.getElementById('drop'),inp=document.getElementById('pdf'),err=document.getElementById('err'),fn=document.getElementById('fname'),send=document.getElementById('sendPdf');
-let file=null;
-function setFile(f){
-  err.textContent='';
-  if(!f)return;
-  if(f.type!=='application/pdf'&&!f.name.toLowerCase().endsWith('.pdf')){err.textContent='Envie um arquivo PDF.';return}
-  if(f.size>10*1024*1024){err.textContent='O PDF tem mais de 10 MB. Envie um arquivo menor.';return}
-  file=f;fn.textContent='📄 '+f.name;fn.classList.add('on');send.hidden=false;
-}
-document.getElementById('pick').onclick=()=>inp.click();
-inp.onchange=()=>setFile(inp.files[0]);
-['dragover','dragenter'].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.add('over')}));
-['dragleave','drop'].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.remove('over')}));
-drop.addEventListener('drop',e=>setFile(e.dataTransfer.files[0]));
-send.onclick=async()=>{
-  const text=`Olá! Vim pelo site Debugou e preparei o briefing do meu negócio em PDF (${file.name}). Pode dar uma olhada e me retornar?`;
-  try{
-    if(navigator.canShare&&navigator.canShare({files:[file]})){await navigator.share({files:[file],text});return}
-  }catch(e){if(e.name==='AbortError')return}
-  open_(text);
-  err.style.color='var(--mute)';err.textContent='O WhatsApp abriu. Anexe o PDF na conversa para completar o envio.';
-};
 </script>
 </body>
 </html>
